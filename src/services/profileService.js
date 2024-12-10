@@ -53,7 +53,6 @@ export class ProfileService {
             params: { page: '1', limit: '10' },
             headers: { accept: 'application/json' }
         };
-
         try {
             const { data } = await axios.request(options);
             return data;
@@ -68,7 +67,6 @@ export class ProfileService {
             params: { page: '1', limit: '10' },
             headers: { accept: 'application/json' }
         };
-
         try {
             const { data } = await axios.request(options);
             console.log(data);
@@ -76,8 +74,19 @@ export class ProfileService {
         } catch (error) {
             console.error(error);
         }
-
-
+    }
+    async getProfileByUsername(username) {
+        const options = {
+            method: 'GET',
+            url: `/api/v1/social-media/profile/u/${username}`,
+            headers: { accept: 'application/json' }
+        };
+        try {
+            const { data } = await axios.request(options);
+            return data;
+        } catch (error) {
+            console.error(error);
+        }
     }
 }
 

@@ -11,6 +11,7 @@ import Home from './pages/Home.jsx'
 import Createpost from './pages/Createpost.jsx'
 import UserProfile from './pages/UserProfile.jsx'
 import UpdateProfile from './pages/UpdateProfile.jsx'
+import Profile from './pages/Profile.jsx'
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: '/update-profile',
         element: <UpdateProfile/>
+      },
+      {
+        path: '/profile/:username',
+        element: <Profile />
       }
     ]
   }
