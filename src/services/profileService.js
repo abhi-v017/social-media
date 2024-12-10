@@ -34,7 +34,7 @@ export class ProfileService {
             method: 'PATCH',
             url: 'api/v1/social-media/profile',
             headers: { accept: 'application/json', 'content-type': 'application/json' },
-            data:data
+            data: data
         };
 
         try {
@@ -60,6 +60,24 @@ export class ProfileService {
         } catch (error) {
             console.error(error);
         }
+    }
+    async getmyPosts() {
+        const options = {
+            method: 'GET',
+            url: '/api/v1/social-media/posts/get/my',
+            params: { page: '1', limit: '10' },
+            headers: { accept: 'application/json' }
+        };
+
+        try {
+            const { data } = await axios.request(options);
+            console.log(data);
+            return data;
+        } catch (error) {
+            console.error(error);
+        }
+
+
     }
 }
 
