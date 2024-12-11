@@ -88,6 +88,23 @@ export class ProfileService {
             console.error(error);
         }
     }
+    async getPostByUsername(username) {
+        const options = {
+            method: 'GET',
+            url: `/api/v1/social-media/posts/get/u/${username}`,
+            params: { page: '1', limit: '6' },
+            headers: { accept: 'application/json' }
+        };
+        try {
+            const { data } = await axios.request(options);
+            console.log(data);
+            return data;
+        } catch (error) {
+            console.error(error);
+        }
+
+
+    }
 }
 
 const profileService = new ProfileService();
