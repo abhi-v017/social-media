@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import likeService from '../services/likeService';
 
-function post({ content, images, tags, postId, isLiked }) {
+function post({ content, images, tags, postId, isLiked, likes }) {
     const [liked, setLiked] = useState(isLiked)
     const likePost = async () => {
         try {
@@ -39,6 +39,7 @@ function post({ content, images, tags, postId, isLiked }) {
                     strokeLinecap="round" />
                 </svg>
             </button>
+            <span className='px-2'>{likes}</span>
         </div>
     );
 }

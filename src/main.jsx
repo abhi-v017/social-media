@@ -12,6 +12,7 @@ import Createpost from './pages/Createpost.jsx'
 import UserProfile from './pages/UserProfile.jsx'
 import UpdateProfile from './pages/UpdateProfile.jsx'
 import Profile from './pages/Profile.jsx'
+import Followers from './pages/Followers.jsx'
 
 
 const router = createBrowserRouter([
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: '/profile/:username',
         element: <Profile />
+      },
+      {
+        path: '/profile/:username/followers',
+        element: <Followers/>
       }
     ]
   }

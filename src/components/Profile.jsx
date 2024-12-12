@@ -74,7 +74,9 @@ function Profile() {
                             <div className='p-2 w-1/4 flex-[0 0 auto]' key={post._id}>
                                 <Post content={post.content}
                                     images={post.images}
-                                    tags={post.tags} />
+                                    tags={post.tags}
+                                    likes={post.likes}
+                                    isLiked={post.isLiked} />
                             </div>
                         ))}
                         </div>

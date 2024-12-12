@@ -23,7 +23,8 @@ function Home() {
                                     images={post.images}
                                     tags={post.tags}
                                     postId={post._id}
-                                    isLiked={post.isLiked}/>
+                                    isLiked={post.isLiked}
+                                    likes={post.likes}/>
                             </div>
                         ))}
                 </div>

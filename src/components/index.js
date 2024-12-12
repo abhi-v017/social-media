@@ -7,6 +7,7 @@ import Createpost from './Createpost'
 import Post from './Post'
 import Profile from './Profile'
 import Update from './Update'
+import Follow from './Follow'
 
 export{
     Footer,
@@ -17,5 +18,6 @@ export{
     Createpost,
     Post,
     Profile,
-    Update
+    Update,
+    Follow
 }

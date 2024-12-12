@@ -2,17 +2,22 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import profileService from '../services/profileService'
 import { Container, Post } from '../components';
+import followService from '../services/followService';
+import { useNavigate } from 'react-router-dom';
 function Profile() {
     const { username } = useParams();
+    const navigate = useNavigate();
     const [profile, setProfile] = useState(null);
     const [posts, setPosts] = useState([])
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+
     useEffect(() => {
         const fetchProfile = async () => {
             setLoading(true);
             try {
                 const response = await profileService.getProfileByUsername(username);
+                console.log(response)
                 setProfile(response.data)
             } catch (error) {
                 setError(error.message || 'Failed to fetch profile');
@@ -36,6 +41,29 @@ function Profile() {
             fetchPosts();
         }
     }, [username]);
+    const followUser = async () => {
+        try {
+            const userId = profile.account._id
+            const response = await followService.followUserService(userId)
+            console.log(response)
+        } catch (error) {
+            console.error('Error liking post:', error.message);
+        }
+    }
+    const followers = async () => {
+        navigate(`/profile/${username}/followers`)
+    }
+    const followings = async () => {
+        try {
+            console.log(profile.account.username)
+            const username = profile.account.username;
+            const response = await followService.followingListService(username)
+            console.log(response)
+            navigate('/followings')
+        } catch (error) {
+            console.error('Error getting following:', error.message);
+        }
+    }
     if (profile) {
 
         return (
@@ -47,11 +75,11 @@ function Profile() {
                             <div className='flex flex-col justify-center'>
                                 <div className='flex justify-between gap-4'>
                                     <span className='inline-block text-xl font-bold underline m-2'>{profile.account.username}</span>
-                                    <button className='border-zinc-200 hover:bg-zinc-200 hover:text-black text-white border-2 rounded-2xl px-2 py-1'>Follow</button>
+                                    <button onClick={followUser} className='border-zinc-200 hover:bg-zinc-200 hover:text-black text-white border-2 rounded-2xl px-2 py-1'>{profile.isFollowing ? 'Following' : 'Follow'}</button>
                                 </div>
                                 <div>
-                                    <span className='inline-block text-xl font-bold underline m-2'>Followers: {profile.followersCount}</span>
-                                    <span className='inline-block text-xl font-bold underline m-2'>Following: {profile.followingCount}</span>
+                                    <span onClick={followers} className='cursor-pointer inline-block text-xl font-bold underline m-2'>Followers: {profile.followersCount}</span>
+                                    <span onClick={followings} className='cursor-pointer inline-block text-xl font-bold underline m-2'>Following: {profile.followingCount}</span>
                                 </div>
                                 <span className='inline-block text-xl font-bold underline m-2'>{profile.bio}</span>
                             </div>
@@ -67,7 +95,9 @@ function Profile() {
                             <div className='flex'>
                                 {posts.map((post) => (
                                     <div className='p-2 w-1/4 flex-[0 0 auto]' key={post._id}>
-                                        <Post content={post.content} images={post.images} tags={post.tags} />
+                                        <Post content={post.content}
+                                            images={post.images}
+                                            tags={post.tags} />
                                     </div>
                                 ))}
                             </div>
