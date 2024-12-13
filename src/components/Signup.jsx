@@ -27,7 +27,7 @@ function Signup() {
         }
     }
     return (
-        <div className='bg-zinc-950 text-white p-4 w-full h-[87.5vh] flex justify-center items-center'>
+        <div className='bg-zinc-950 text-white p-4 w-full h-[88.1vh] flex justify-center items-center'>
             <form onSubmit={handleSubmit(signupHandler)} className='border-2 border-zinc-700 rounded-lg py-3 px-2 shadow-lg shadow-white/20' action="">
                 <h1 className='py-3 px-2 font-bold text-xl text-center'>create your account bro !!!</h1>
                 <div className='flex flex-col items-center py-3 px-2 gap-3'>

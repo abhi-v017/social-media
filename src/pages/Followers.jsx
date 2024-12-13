@@ -13,7 +13,6 @@ function Followers() {
                 const response = await followService.followerListService(username)
                 console.log(response)
                 setFollowers(response.data.followers)
-
             } catch (error) {
                 console.error('Error getting followers:', error.message);
             }
@@ -21,6 +20,13 @@ function Followers() {
         followers()
     }, [username])
     console.log(followers)
+    if (followers.length == 0) {
+
+        return (<div className='bg-zinc-900 h-[88.1vh]'>
+            <span className='text-white font-bold text2xl m-2'>no followers yet!!!</span>
+        </div>)
+    }
+
     return (
         <div className='bg-zinc-900 flex items-center justify-center h-[88.1vh]'>
             {followers.map((follower) => (
@@ -31,7 +37,6 @@ function Followers() {
                     />
                 </div>
             ))}
-
         </div>
     )
 }

@@ -37,9 +37,11 @@ function Profile() {
         })
     }, []);
     const followers = async () => {
+        const username = await profile.account.username
         navigate(`/profile/${username}/followers`)
     }
     const followings = async () => {
+        const username = await profile.account.username
         navigate(`/profile/${username}/followings`)
     }
     if (!profile) {

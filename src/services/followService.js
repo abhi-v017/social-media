@@ -25,7 +25,7 @@ export class FollowService {
         };
         try {
             const { data } = await axios.request(options);
-            console.log(data);
+            return data;
         } catch (error) {
             console.error(error);
         }
