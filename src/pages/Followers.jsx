@@ -6,7 +6,6 @@ import followService from '../services/followService'
 function Followers() {
     const [followers, setFollowers] = useState([])
     const { username } = useParams();
-    console.log(username);
     useEffect(() => {
         const followers = async () => {
             try {

@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import profileService from '../services/profileService'
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 function Createpost() {
+    const authStatus = useSelector((state) => state.auth.status)
     const [content, setContent] = useState('');
     const [tags, setTags] = useState([]);
     const [images, setImages] = useState(null);
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate();
+    if (!authStatus) {
+        alert("You must be logged in to create a post.");
+        return;
+    }
     const handleImageChange = (event) => {
         setImages(event.target.files);
     };
@@ -37,6 +43,11 @@ function Createpost() {
         } finally {
             setLoading(false); // Reset loading state
         }
+    }
+    if(loading){
+        return(
+            <span className='font-bold text-3xl text-white p-4 '>loading.....</span>
+        )
     }
 
     return (

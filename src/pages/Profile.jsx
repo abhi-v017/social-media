@@ -4,7 +4,9 @@ import profileService from '../services/profileService'
 import { Container, Post } from '../components';
 import followService from '../services/followService';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux'
 function Profile() {
+    const authStatus = useSelector((state) => state.auth.status)
     const { username } = useParams();
     const navigate = useNavigate();
     const [profile, setProfile] = useState(null);
@@ -42,6 +44,10 @@ function Profile() {
         }
     }, [username]);
     const followUser = async () => {
+        if (!authStatus) {
+            alert("You must be logged in to follow the user.");
+            return;
+        }
         try {
             const userId = profile.account._id
             const response = await followService.followUserService(userId)
@@ -54,6 +60,11 @@ function Profile() {
     }
     const followings = async () => {
         navigate(`/profile/${username}/followings`)
+    }
+    if(loading){
+        return(
+            <span className='font-bold text-3xl text-white p-4 '>loading.....</span>
+        )
     }
     if (profile) {
 

@@ -30,7 +30,11 @@ function Login() {
             setLoading(false); // Reset loading state
         }
     } 
-
+    if(loading){
+        return(
+            <span className='font-bold text-3xl text-white p-4 '>loading.....</span>
+        )
+    }
     return (
         <div className='bg-zinc-950 text-white p-4 w-full h-[88.1vh] flex justify-center items-center'>
             <form onSubmit={handleSubmit(loginHandler)} className='border-2 border-zinc-700 rounded-lg py-3 px-2 shadow-lg shadow-white/20' action="">

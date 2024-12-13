@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Follow } from '../components'
 import { useParams } from 'react-router-dom'
 import followService from '../services/followService'
-import { space } from 'postcss/lib/list'
 
 function Following() {
     const [followings, setFollowings] = useState([])
     const { username } = useParams();
+    
     useEffect(() => {
         const followings = async () => {
             try {

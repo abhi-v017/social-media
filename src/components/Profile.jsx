@@ -2,21 +2,23 @@ import React, { useEffect, useState } from 'react'
 import profileService from '../services/profileService'
 import { useNavigate } from 'react-router-dom';
 import { Container, Post } from '../components'
+import { useSelector } from 'react-redux';
 
 function Profile() {
-
+    const authStatus = useSelector((state) => state.auth.status)
     const [profile, setProfile] = useState(null); // Initialize as null
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
     const [posts, setPosts] = useState([])
     const navigate = useNavigate();
-
+    if (!authStatus) {
+        alert("You must be logged in to see the profile.");
+        return;
+    }
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await profileService.getProfileService(); // Log the response for debugging
-
-                // Check if the response contains the expected profile data
+                const response = await profileService.getProfileService(); 
                 if (response.success && response.data) {
                     setProfile(response.data);// Adjust based on actual response structure
                 } else {
@@ -50,6 +52,11 @@ function Profile() {
 
     const updateProfile = async () => {
         navigate('/update-profile')
+    }
+    if(loading){
+        return(
+            <span className='font-bold text-3xl text-white p-4 '>loading.....</span>
+        )
     }
     return (
         <div className="bg-zinc-900 profile flex flex-col gap-6 justify-center items-center h-[88.1vh]">

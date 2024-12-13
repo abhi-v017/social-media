@@ -1,16 +1,22 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import profileService from '../services/profileService'
+import { useSelector } from 'react-redux'
 
 
 function Update() {
+    const authStatus = useSelector((state) => state.auth.status)
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { register, handleSubmit } = useForm()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    if (!authStatus) {
+        alert("You must be logged in to update the profile.");
+        return;
+    }
 
     const handleUpdate = async (data) => {
         setError('');
@@ -29,6 +35,11 @@ function Update() {
             setLoading(false); // Reset loading state
         }
     };
+    if(loading){
+        return(
+            <span className='font-bold text-3xl text-white p-4 '>loading.....</span>
+        )
+    }
     return (
         <div className='bg-zinc-950 text-white p-4 w-full h-[87.5vh] flex justify-center items-center'>
             <form onSubmit={handleSubmit(handleUpdate)} className='border-2 border-zinc-700 rounded-lg py-3 px-2 shadow-lg shadow-white/20' action="">
