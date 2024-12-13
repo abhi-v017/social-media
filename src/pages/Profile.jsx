@@ -45,7 +45,6 @@ function Profile() {
         try {
             const userId = profile.account._id
             const response = await followService.followUserService(userId)
-            console.log(response)
         } catch (error) {
             console.error('Error liking post:', error.message);
         }
@@ -54,15 +53,7 @@ function Profile() {
         navigate(`/profile/${username}/followers`)
     }
     const followings = async () => {
-        try {
-            console.log(profile.account.username)
-            const username = profile.account.username;
-            const response = await followService.followingListService(username)
-            console.log(response)
-            navigate('/followings')
-        } catch (error) {
-            console.error('Error getting following:', error.message);
-        }
+        navigate(`/profile/${username}/followings`)
     }
     if (profile) {
 

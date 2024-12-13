@@ -13,6 +13,7 @@ import UserProfile from './pages/UserProfile.jsx'
 import UpdateProfile from './pages/UpdateProfile.jsx'
 import Profile from './pages/Profile.jsx'
 import Followers from './pages/Followers.jsx'
+import Following from './pages/Following.jsx'
 
 
 const router = createBrowserRouter([
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: '/profile/:username/followers',
         element: <Followers/>
+      },
+      {
+        path: '/profile/:username/followings',
+        element: <Following/>
       }
     ]
   }

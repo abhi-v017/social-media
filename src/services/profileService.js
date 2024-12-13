@@ -106,6 +106,9 @@ export class ProfileService {
 
 
     }
+    async deletePost(){
+        
+    }
 }
 
 const profileService = new ProfileService();

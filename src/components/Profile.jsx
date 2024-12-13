@@ -36,6 +36,12 @@ function Profile() {
             }
         })
     }, []);
+    const followers = async () => {
+        navigate(`/profile/${username}/followers`)
+    }
+    const followings = async () => {
+        navigate(`/profile/${username}/followings`)
+    }
     if (!profile) {
         return <div className="text-white">No profile data available.</div>;
     }
@@ -55,8 +61,8 @@ function Profile() {
                             <button onClick={updateProfile} className='border-zinc-200 hover:bg-zinc-200 hover:text-black text-white border-2 rounded-2xl px-2 py-1'>update</button>
                         </div>
                         <div>
-                            <span className='inline-block text-xl font-bold underline m-2'>Followers: {profile.followersCount}</span>
-                            <span className='inline-block text-xl font-bold underline m-2'>Following: {profile.followingCount}</span>
+                            <span onClick={followers} className='cursor-pointer inline-block text-xl font-bold underline m-2'>Followers: {profile.followersCount}</span>
+                            <span onClick={followings} className='cursor-pointer inline-block text-xl font-bold underline m-2'>Following: {profile.followingCount}</span>
                         </div>
                         <span className='inline-block text-xl font-bold underline m-2'>{profile.account.email}</span>
                         <span className='inline-block text-xl font-bold underline m-2'>{profile.bio}</span>
