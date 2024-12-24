@@ -106,8 +106,22 @@ export class ProfileService {
 
 
     }
-    async deletePost(){
-        
+    async getPostById(postId) {
+        const options = {
+            method: 'GET',
+            url: `/api/v1/social-media/posts/${postId}`,
+            headers: { accept: 'application/json' }
+        };
+        try {
+            const { data } = await axios.request(options);
+            console.log(data);
+            return data
+        } catch (error) {
+            console.error(error);
+        }
+    }
+    async deletePost() {
+
     }
 }
 
