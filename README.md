@@ -1,89 +1,76 @@
-# 🌐 Social Media Platform
-A full-stack social media platform built using the MERN stack (MongoDB, Express.js, React.js, Node.js). Connect, share, and interact with others seamlessly!
+# 🌐 Social Media Platform <br>
+A full-stack social media platform built using the MERN stack (MongoDB, Express.js, React.js, Node.js). Connect, share, and interact with others seamlessly! <br>
 
-✨ Features
-✅ User Authentication 🔐 – Secure login & registration system
-✅ Post Creation 📝 – Users can create, edit, and delete posts
-✅ Commenting System 💬 – Engage with posts through comments
-✅ Real-time Notifications 🔔 – Stay updated with live alerts
-✅ Responsive Design 📱 – Optimized for various devices
+✨ Features <br>
+✅ User Authentication 🔐 – Secure login & registration system <br>
+✅ Post Creation 📝 – Users can create, edit, and delete posts <br>
+✅ Commenting System 💬 – Engage with posts through comments <br>
+✅ Real-time Notifications 🔔 – Stay updated with live alerts <br>
+✅ Responsive Design 📱 – Optimized for various devices <br>
 
-🛠 Tech Stack
-Technology	Description
-⚛️ Frontend	React.js, Tailwind CSS
-🚀 Backend	Node.js, Express.js
-🗄 Database	MongoDB
-📦 State Management	Redux Toolkit
-🔐 Authentication	JSON Web Tokens (JWT)
-⚡ Bundler	Vite
-⚡ Installation & Setup
-Follow these steps to set up the project on your local machine:
+🛠 Tech Stack <br>
+Technology	Description <br>
+⚛️ Frontend	React.js, Tailwind CSS <br>
+🚀 Backend	Node.js, Express.js <br>
+🗄 Database	MongoDB v
+📦 State Management	Redux Toolkit <br>
+🔐 Authentication	JSON Web Tokens (JWT) <br>
+⚡ Bundler	Vite <br>
+⚡ Installation & Setup <br>
+Follow these steps to set up the project on your local machine: <br>
 
-1️⃣ Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/abhi-v017/social-media.git
-cd social-media
-2️⃣ Install Dependencies
-bash
-Copy
-Edit
-# Install backend dependencies
-cd backend
-npm install
+1️⃣ Clone the Repository <br>
+git clone https://github.com/abhi-v017/social-media.git <br>
+cd social-media <br>
+2️⃣ Install Dependencies <br>
+# Install backend dependencies <br>
+cd backend <br>
+npm install <br>
 
-# Install frontend dependencies
-cd ../frontend
-npm install
-3️⃣ Set Up Environment Variables
-Create a .env file inside the backend directory and add the following:
+# Install frontend dependencies <br>
+cd ../frontend <br>
+npm install <br>
+3️⃣ Set Up Environment Variables <br>
+Create a .env file inside the backend directory and add the following: <br>
+MONGO_URI=your_mongodb_connection_string <br>
+JWT_SECRET=your_jwt_secret <br>
+4️⃣ Run the Application 🚀 <br>
+# Start backend server <br>
+cd backend <br>
+npm start <br>
 
-env
-Copy
-Edit
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret
-4️⃣ Run the Application 🚀
-bash
-Copy
-Edit
-# Start backend server
-cd backend
-npm start
+# Start frontend development server <br>
+cd ../frontend <br>
+npm run dev <br>
+Your application should now be running locally! 🎉 <br>
 
-# Start frontend development server
-cd ../frontend
-npm run dev
-Your application should now be running locally! 🎉
+🛠 Usage Guide <br>
+📌 Authentication – Register or log in to access the platform. <br>
+📌 Creating Posts – Navigate to "Create Post," enter your content, and submit. <br>
+📌 Interacting with Posts – Like, comment, and engage with posts. <br>
+📌 Notifications – Get real-time updates on user interactions. <br>
 
-🛠 Usage Guide
-📌 Authentication – Register or log in to access the platform.
-📌 Creating Posts – Navigate to "Create Post," enter your content, and submit.
-📌 Interacting with Posts – Like, comment, and engage with posts.
-📌 Notifications – Get real-time updates on user interactions.
+🔗 API Endpoints <br>
+Method	Endpoint	Description <br>
+POST	/api/auth/register	Register a new user <br>
+POST	/api/auth/login	Authenticate a user <br>
+GET	/api/posts	Retrieve all posts <br>
+POST	/api/posts	Create a new post <br>
+PUT	/api/posts/:id	Update an existing post <br>
+DELETE	/api/posts/:id	Delete a post <br>
+POST	/api/posts/:id/comments	Add a comment to a post <br>
+🤝 Contribution Guidelines <br>
+🚀 Want to contribute? Follow these steps: <br>
 
-🔗 API Endpoints
-Method	Endpoint	Description
-POST	/api/auth/register	Register a new user
-POST	/api/auth/login	Authenticate a user
-GET	/api/posts	Retrieve all posts
-POST	/api/posts	Create a new post
-PUT	/api/posts/:id	Update an existing post
-DELETE	/api/posts/:id	Delete a post
-POST	/api/posts/:id/comments	Add a comment to a post
-🤝 Contribution Guidelines
-🚀 Want to contribute? Follow these steps:
+Fork the repository 🍴 <br>
+Create a new branch: git checkout -b feature/your-feature-name <br>
+Commit your changes: git commit -m 'Add some feature' <br>
+Push to the branch: git push origin feature/your-feature-name <br>
+Open a pull request 📩 <br>
+📜 License <br>
+📝 This project is licensed under the MIT License. <br>
 
-Fork the repository 🍴
-Create a new branch: git checkout -b feature/your-feature-name
-Commit your changes: git commit -m 'Add some feature'
-Push to the branch: git push origin feature/your-feature-name
-Open a pull request 📩
-📜 License
-📝 This project is licensed under the MIT License.
-
-👨‍💻 Author
-Developed with ❤️ by Abhishek Verma.
+👨‍💻 Author <br>
+Developed with ❤️ by Abhishek Verma. <br>
 
 🚀 Happy Coding! 🎉
